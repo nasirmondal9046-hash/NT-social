@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NT Social</title>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+
+<div id="auth" style="display:none">
+  <div id="langAuthBox"><select id="langAuth"></select></div>
+  <h2>NT Social</h2>
+  <input id="uname" data-ph="username">
+  <input id="email" type="email" data-ph="email">
+  <input id="pass" type="password" data-ph="password">
+  <button id="signup" data-i="signup"></button>
+  <button id="login" data-i="login"></button>
+  <div id="msg"></div>
+</div>
+
+<div id="app" style="display:none">
+  <header>
+    <label id="plus">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v16M4 12h16"/></svg>
+      <input type="file" id="file" accept="image/*,video/*" hidden>
+    </label>
+    <span id="logo">NT Social</span>
+    <span id="hr">
+      <span id="bell"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21s-8-5.2-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 5.8-8 11-8 11z"/></svg><span id="bellDot"></span></span>
+      <button id="logout" data-i="logout"></button>
+    </span>
+  </header>
+  <div id="err"></div>
+  <div id="status"></div>
+
+  <div id="feed"></div>
+  <div id="reels" style="display:none"></div>
+
+  <div id="chatWrap" style="display:none">
+    <input id="chatSearch" data-ph="search">
+    <div id="chatList"></div>
+  </div>
+
+  <div id="profile" style="display:none">
+    <button id="gear">☰</button>
+    <div id="pAvBox"></div>
+    <div id="pName"></div>
+    <div id="pBio"></div>
+    <div id="pStats">
+      <div class="st"><b id="stPosts">0</b><span data-i="posts"></span></div>
+      <div class="st"><b id="stFollowers">0</b><span data-i="followers"></span></div>
+      <div class="st"><b id="stFollowing">0</b><span data-i="followingLbl"></span></div>
+    </div>
+    <button id="pFollow" style="display:none"></button>
+    <div id="pEdit">
+      <button id="editBtn" class="lbtn" data-i="editProfile"></button>
+      <label class="lbtn"><span data-i="changePhoto"></span><input type="file" id="pfile" accept="image/*" hidden></label>
+    </div>
+    <button id="pBack" style="display:none" data-i="back"></button>
+    <div id="pTabs">
+      <span id="tabAll" class="on"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="5" height="5"/><rect x="9.5" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="9.5" width="5" height="5"/><rect x="9.5" y="9.5" width="5" height="5"/><rect x="16" y="9.5" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><rect x="9.5" y="16" width="5" height="5"/><rect x="16" y="16" width="5" height="5"/></svg></span>
+      <span id="tabVid"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
+    </div>
+    <div id="pGrid"></div>
+  </div>
+
+  <div id="room" style="display:none">
+    <div id="roomTop">
+      <button id="back" data-i="arrow"></button>
+      <span id="roomAv"></span>
+      <span id="roomName"></span>
+      <span id="roomBtns"><button id="callBtn">📹</button><button id="optBtn">⋯</button></span>
+    </div>
+    <div id="msgs"></div>
+  </div>
+
+  <div id="msgBar" style="display:none">
+    <label id="photoBtn">📷<input type="file" id="chatFile" accept="image/*" hidden></label>
+    <input id="msgIn" data-ph="msgPh">
+    <button id="emojiBtn">😊</button>
+    <button id="send" data-i="send"></button>
+  </div>
+
+  <div id="viewer" style="display:none">
+    <button id="vClose">✕</button>
+    <button id="vMenu" style="display:none">⋯</button>
+    <div id="vImg"></div>
+    <video id="vVid" controls playsinline style="display:none"></video>
+    <div id="vCap"></div>
+  </div>
+
+  <div id="sheet" style="display:none">
+    <div id="sheetBox">
+      <div id="sheetBar"></div>
+      <button id="mEdit" class="mrow" data-i="edit"></button>
+      <button id="mDel" class="mrow red" data-i="delete"></button>
+      <button id="mCancel" class="mrow" data-i="cancel"></button>
+    </div>
+  </div>
+
+  <div id="notif" style="display:none">
+    <div id="notifTop"><button id="notifBack" data-i="arrow"></button><span data-i="notifTitle"></span></div>
+    <div id="notifList"></div>
+  </div>
+
+  <div id="settings" style="display:none">
+    <div id="setTop"><button id="setBack" data-i="arrow"></button><span data-i="setTitle"></span></div>
+    <div id="setList">
+      <div id="langRow"><span data-i="language"></span><select id="langProf"></select></div>
+    </div>
+  </div>
+  <div id="setToast"></div>
+
+  <div id="emojiBox" style="display:none"></div>
+
+  <div id="csheet" style="display:none">
+    <div id="csBox">
+      <button id="cPin" class="mrow"></button>
+      <button id="cMute" class="mrow"></button>
+      <button id="cBlock" class="mrow red"></button>
+      <button id="cCancel" class="mrow" data-i="cancel"></button>
+    </div>
+  </div>
+
+  <div id="blocked" style="display:none">
+    <div id="blkTop"><button id="blkBack" data-i="arrow"></button><span data-i="s_blocked"></span></div>
+    <div id="blkList"></div>
+  </div>
+
+  <div id="editP" style="display:none">
+    <div id="editTop"><button id="editBack" data-i="arrow"></button><span data-i="editProfile"></span></div>
+    <div id="editBody">
+      <label class="el" data-i="nameLbl"></label>
+      <input id="nameIn">
+      <label class="el" data-i="handleLbl"></label>
+      <input id="handleIn" autocapitalize="none">
+      <label class="el" data-i="bioLbl"></label>
+      <textarea id="bioIn2"></textarea>
+      <div id="editMsg"></div>
+      <button id="editSave" data-i="save"></button>
+    </div>
+  </div>
+
+  <div id="newReel" style="display:none">
+    <div id="nrTop"><button id="nrBack" data-i="arrow"></button><span data-i="newReel"></span></div>
+    <div id="nrBody">
+      <div id="nrPrev">
+        <video id="nrVid" controls playsinline muted></video>
+        <button id="nrCoverBtn" data-i="editCover"></button>
+      </div>
+      <input type="file" id="nrCoverFile" accept="image/*" hidden>
+      <textarea id="nrCap" data-ph="capHashPh"></textarea>
+      <div id="nrChips"><button id="nrHash" data-i="hashtags"></button></div>
+      <label class="tg"><span data-i="hideLikeReel"></span><input type="checkbox" id="nrHideLikes"></label>
+      <label class="tg"><span data-i="hideCommentReel"></span><input type="checkbox" id="nrHideCmts"></label>
+      <label class="tg"><span data-i="hideShareReel"></span><input type="checkbox" id="nrHideShares"></label>
+      <div id="nrNote"></div>
+      <button id="nrPost" data-i="postBtn"></button>
+    </div>
+  </div>
+
+  <div id="cmSheet" style="display:none">
+    <div id="cmBox">
+      <div id="cmHead"><span data-i="commentsTitle"></span><button id="cmClose">✕</button></div>
+      <div id="cmList"></div>
+      <div id="cmBar"><input id="cmIn" data-ph="commentPh"><button id="cmSend" data-i="postBtn"></button></div>
+    </div>
+  </div>
+
+  <nav id="nav">
+    <span class="ni" id="goHome"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span>
+    <span class="ni" id="goReels"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 8.5l6 3.5-6 3.5z"/></svg></span>
+    <span class="ni" id="goChat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M21 3L3 10.5l7 3 3 7z"/><path d="M10 13.5L21 3"/></svg><span id="chatDot"></span></span>
+    <span class="ni" id="goProfile"><span id="navAv"></span></span>
+  </nav>
+</div>
+
+<script type="module">
+const parts = ["j1.js", "j2.js", "j3.js", "j4.js", "j5.js"];
+try {
+  const texts = await Promise.all(parts.map(p => fetch(p + '?v=1').then(r => {
+    if (!r.ok) throw new Error('Missing file: ' + p);
+    return r.text();
+  })));
+  const url = URL.createObjectURL(new Blob([texts.join('\n')], { type: 'text/javascript' }));
+  await import(url);
+} catch (e) {
+  document.body.insertAdjacentHTML('afterbegin', '<pre style="color:#ed4956;padding:12px;white-space:pre-wrap">' + e.message + '</pre>');
+}
+</script>
+</body>
+</html>
